@@ -5,23 +5,40 @@ using UnityEngine;
 public class GPUBox : MonoBehaviour
 {
     [SerializeField]
-    private Animator gpuBoxOpeningAnimator;
+    private Animator openingMainAnimator;
     [SerializeField]
-    private HitBox boxOpeningHitBox;
+    private Animator openingSideAnimator;
+    [SerializeField]
+    private AnimationEvent openingMainEvents;
+    [SerializeField]
+    private HitBox openingHitBox;
 
     private void OnEnable()
     {
-        boxOpeningHitBox.OnClick += OnHitBoxClicked;
+        openingHitBox.OnClick += OnHitBoxClicked;
+        openingMainEvents.OnAnimationFinished += OnOpeningMainAnimationFinished;
     }
 
     private void OnDisable()
     {
-        boxOpeningHitBox.OnClick -= OnHitBoxClicked;
+        openingHitBox.OnClick -= OnHitBoxClicked;
+        openingMainEvents.OnAnimationFinished -= OnOpeningMainAnimationFinished;
     }
 
     public void Open()
     {
-        gpuBoxOpeningAnimator.SetTrigger("Open");
+        openingMainAnimator.SetTrigger("Open");
+        openingSideAnimator.SetTrigger("Open");
+        openingHitBox.gameObject.SetActive(false);
+    }
+
+    private void OnOpeningMainAnimationFinished(string animationName)
+    {
+        if(animationName == "Open")
+        {
+            openingMainAnimator.gameObject.GetComponent<SpriteRenderer>()
+                .sortingOrder = 11;
+        }
     }
 
     private void OnHitBoxClicked()
