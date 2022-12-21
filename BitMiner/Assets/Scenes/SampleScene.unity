@@ -537,6 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 582292073}
   - component: {fileID: 582292074}
+  - component: {fileID: 582292075}
   m_Layer: 0
   m_Name: GPU inner box
   m_TagString: Untagged
@@ -555,7 +556,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1206505649}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -611,6 +613,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &582292075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582292072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c145ba2a8f521cc4c91bd54762478cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox: {fileID: 1206505650}
 --- !u!1 &591184885
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +782,95 @@ Transform:
   m_Father: {fileID: 2075611035}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1206505648
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 582292073}
+    m_Modifications:
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99190557
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.126978
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -14.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112755547510792624, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_Size.x
+      value: 4.046335
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112755547510792624, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_Size.y
+      value: 3.1947694
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112755547510792624, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.34773934
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112755547510792624, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.27171683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6381059116480314677, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_Name
+      value: GPU inner box hitbox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+--- !u!4 &1206505649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2274619534623668898, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+  m_PrefabInstance: {fileID: 1206505648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1206505650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671081168683843147, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+  m_PrefabInstance: {fileID: 1206505648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cbd28ad9e97cf479c6d8fb309d2e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1417427819
 GameObject:
   m_ObjectHideFlags: 0
