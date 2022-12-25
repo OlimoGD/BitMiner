@@ -2,22 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Draggable : MonoBehaviour
 {
     [SerializeField]
-    private HitBox hitBox;
+    private InteractArea interactArea;
+    private Rigidbody2D rigidb;
     private Vector3 mouseOffset;
+
+    private void Reset()
+    {
+        rigidb = GetComponent<Rigidbody2D>();
+        rigidb.bodyType = RigidbodyType2D.Dynamic;
+        rigidb.mass = 0.0001f;
+        rigidb.angularDrag = 0f;
+        rigidb.drag = 0f;
+        rigidb.gravityScale = 0f;
+        rigidb.freezeRotation = true;
+        rigidb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+    }
 
     private void OnEnable()
     {
-        hitBox.OnClick += OnClick;
-        hitBox.OnDrag += OnDrag;
+        interactArea.OnClick += OnClick;
+        interactArea.OnDrag += OnDrag;
     }
 
     private void OnDisable()
     {
-        hitBox.OnClick -= OnClick;
-        hitBox.OnDrag -= OnDrag;
+        interactArea.OnClick -= OnClick;
+        interactArea.OnDrag -= OnDrag;
     }
 
     private void OnClick()
@@ -27,7 +41,8 @@ public class Draggable : MonoBehaviour
 
     private void OnDrag()
     {
-        gameObject.transform.position = MouseWorldPos() + mouseOffset;
+        Vector3 newPos = MouseWorldPos() + mouseOffset;
+        GetComponent<Rigidbody2D>().MovePosition(newPos);
     }
 
     private Vector3 MouseWorldPos()

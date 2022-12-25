@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitBox : MonoBehaviour
+public class InteractArea : MonoBehaviour
 {
     public delegate void OnClickDelegate();
     public event OnClickDelegate OnClick;
@@ -18,5 +18,9 @@ public class HitBox : MonoBehaviour
     void OnMouseDrag()
     {
         OnDrag?.Invoke();
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
     }
 }

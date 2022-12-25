@@ -11,7 +11,7 @@ public class GPUBox : MonoBehaviour
     [SerializeField]
     private AnimationEvent openingMainEvents;
     [SerializeField]
-    private HitBox openingHitBox;
+    private InteractArea openingHitBox;
 
     private void OnEnable()
     {
@@ -44,5 +44,10 @@ public class GPUBox : MonoBehaviour
     private void OnHitBoxClicked()
     {
         Open();
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("clickity");
     }
 }
