@@ -6,21 +6,51 @@ public class InteractArea : MonoBehaviour
 {
     public delegate void OnClickDelegate();
     public event OnClickDelegate OnClick;
+    public delegate void OnReleaseDelegate();
+    public event OnReleaseDelegate OnRelease;
     public delegate void OnDragDelegate();
     public event OnDragDelegate OnDrag;
 
-    void OnMouseDown()
+    void Update()
     {
-        OnClick?.Invoke();
+        if(Input.GetMouseButtonDown(0))
+        {
+            if(MouseIsOverThisInteractArea())
+            {
+                OnClick?.Invoke();
+            }
+        }
+        else if(Input.GetMouseButton(0))
+        {
+            if(MouseIsOverThisInteractArea())
+            {
+                OnDrag?.Invoke();
+            }
+        }
+        else if(Input.GetMouseButtonUp(0))
+        {
+            if(MouseIsOverThisInteractArea())
+            {
+                OnRelease?.Invoke();
+            }
+        }
     }
 
-    //called every frame while holding down mouse
-    void OnMouseDrag()
+    private bool MouseIsOverThisInteractArea()
     {
-        OnDrag?.Invoke();
+        RaycastHit2D[] hits = Physics2D.RaycastAll(MouseWorldPos(), -Vector2.up);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if(hits[i].transform.gameObject.GetComponent<InteractArea>() == this)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    private Vector3 MouseWorldPos()
     {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }
