@@ -11,25 +11,31 @@ public class GPUBox : MonoBehaviour
     [SerializeField]
     private AnimationEvent openingMainEvents;
     [SerializeField]
-    private InteractArea openingHitBox;
+    private InteractArea openingArea;
+    [SerializeField]
+    private InteractArea boxArea;
+    [SerializeField]
+    private GameObject innerBoxGO;
 
     private void OnEnable()
     {
-        openingHitBox.OnClick += OnHitBoxClicked;
+        openingArea.OnClick += OnOpeningAreaClicked;
         openingMainEvents.OnAnimationFinished += OnOpeningMainAnimationFinished;
+        boxArea.OnAreaExited += OnColliderExitedBoxArea;
     }
 
     private void OnDisable()
     {
-        openingHitBox.OnClick -= OnHitBoxClicked;
+        openingArea.OnClick -= OnOpeningAreaClicked;
         openingMainEvents.OnAnimationFinished -= OnOpeningMainAnimationFinished;
+        boxArea.OnAreaExited -= OnColliderExitedBoxArea;
     }
 
     public void Open()
     {
         openingMainAnimator.SetTrigger("Open");
         openingSideAnimator.SetTrigger("Open");
-        openingHitBox.gameObject.SetActive(false);
+        openingArea.gameObject.SetActive(false);
     }
 
     private void OnOpeningMainAnimationFinished(string animationName)
@@ -41,13 +47,21 @@ public class GPUBox : MonoBehaviour
         }
     }
 
-    private void OnHitBoxClicked()
+    private void OnOpeningAreaClicked()
     {
         Open();
     }
 
-    private void OnMouseDown()
+    private void OnColliderExitedBoxArea(Collider2D col)
     {
-        Debug.Log("clickity");
+        if(col.attachedRigidbody.gameObject != innerBoxGO) return;
+        //inner box has been slid out
+        StartCoroutine(DestroyCoroutine());
+    }
+
+    IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(this.gameObject);
     }
 }

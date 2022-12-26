@@ -10,6 +10,8 @@ public class InteractArea : MonoBehaviour
     public event OnReleaseDelegate OnRelease;
     public delegate void OnDragDelegate();
     public event OnDragDelegate OnDrag;
+    public delegate void OnAreaExitedDelegate(Collider2D colliderThatExited);
+    public event OnAreaExitedDelegate OnAreaExited;
 
     void Update()
     {
@@ -52,5 +54,10 @@ public class InteractArea : MonoBehaviour
     private Vector3 MouseWorldPos()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        OnAreaExited?.Invoke(other);
     }
 }
