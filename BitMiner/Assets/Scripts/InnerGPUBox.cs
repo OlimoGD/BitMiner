@@ -41,6 +41,9 @@ public class InnerGPUBox : MonoBehaviour
             gpuHitBox.isTrigger = false;
             //detach gpu from gpu inner box
             gpuGO.transform.parent = null;
+            //make gpu destroyable
+            gpuGO.GetComponent<GPU>().IsDestroyable = true;
+            
             StartCoroutine(DestroyCoroutine());
         }
     }
