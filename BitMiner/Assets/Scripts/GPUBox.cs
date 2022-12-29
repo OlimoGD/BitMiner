@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GPUBox : MonoBehaviour
 {
+    public delegate void InnerBoxExitedDelegate();
+    public event InnerBoxExitedDelegate OnInnerBoxExited;
+
     [SerializeField]
     private Animator openingMainAnimator;
     [SerializeField]
@@ -56,6 +59,7 @@ public class GPUBox : MonoBehaviour
     {
         if(col.attachedRigidbody.gameObject != innerBoxGO) return;
         //inner box has been slid out
+        OnInnerBoxExited?.Invoke();
         StartCoroutine(DestroyCoroutine());
     }
 
