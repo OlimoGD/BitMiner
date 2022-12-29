@@ -18,6 +18,7 @@ public class InteractArea : MonoBehaviour
     //If interact areas are overlapping only the top most will catch inputs.
     //An interact area with higher sort order is on top.
     private int sortOrder;
+    private bool isDragging = false;
 
     void Update()
     {
@@ -25,22 +26,24 @@ public class InteractArea : MonoBehaviour
         {
             if(MouseIsOverThisInteractAreaAndIsTopMost())
             {
+                isDragging = true;
                 OnClick?.Invoke();
-            }
-        }
-        else if(Input.GetMouseButton(0))
-        {
-            if(MouseIsOverThisInteractAreaAndIsTopMost())
-            {
-                OnDrag?.Invoke();
             }
         }
         else if(Input.GetMouseButtonUp(0))
         {
+            //anywhere mouse button is released
+            isDragging = false;
+
             if(MouseIsOverThisInteractAreaAndIsTopMost())
             {
                 OnRelease?.Invoke();
             }
+        }
+
+        if(isDragging)
+        {
+            OnDrag?.Invoke();
         }
     }
 
