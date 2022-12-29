@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InteractArea : MonoBehaviour
@@ -13,42 +14,61 @@ public class InteractArea : MonoBehaviour
     public delegate void OnAreaExitedDelegate(Collider2D colliderThatExited);
     public event OnAreaExitedDelegate OnAreaExited;
 
+    [SerializeField]
+    //If interact areas are overlapping only the top most will catch inputs.
+    //An interact area with higher sort order is on top.
+    private int sortOrder;
+
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if(MouseIsOverThisInteractArea())
+            if(MouseIsOverThisInteractAreaAndIsTopMost())
             {
                 OnClick?.Invoke();
             }
         }
         else if(Input.GetMouseButton(0))
         {
-            if(MouseIsOverThisInteractArea())
+            if(MouseIsOverThisInteractAreaAndIsTopMost())
             {
                 OnDrag?.Invoke();
             }
         }
         else if(Input.GetMouseButtonUp(0))
         {
-            if(MouseIsOverThisInteractArea())
+            if(MouseIsOverThisInteractAreaAndIsTopMost())
             {
                 OnRelease?.Invoke();
             }
         }
     }
 
-    private bool MouseIsOverThisInteractArea()
+    private bool MouseIsOverThisInteractAreaAndIsTopMost()
     {
+        List<InteractArea> hitInteractAreas = new List<InteractArea>();
+        bool mouseIsOverThisInteractArea = false;
+        int sortOrderOfThisInteractArea = 0;
         RaycastHit2D[] hits = Physics2D.RaycastAll(MouseWorldPos(), -Vector2.up);
         for (int i = 0; i < hits.Length; i++)
         {
-            if(hits[i].transform.gameObject.GetComponent<InteractArea>() == this)
+            InteractArea ia = hits[i].transform.gameObject.GetComponent<InteractArea>();
+            if(ia != null)
             {
-                return true;
+                hitInteractAreas.Add(ia);
+                if(ia == this)
+                {
+                    mouseIsOverThisInteractArea = true;
+                    sortOrderOfThisInteractArea = this.sortOrder;
+                }
             }
         }
-        return false;
+
+        if(!mouseIsOverThisInteractArea)
+            return false;
+        
+        int maxSortOrder = hitInteractAreas.Max(ia => ia.sortOrder);
+        return sortOrderOfThisInteractArea == maxSortOrder;
     }
 
     private Vector3 MouseWorldPos()

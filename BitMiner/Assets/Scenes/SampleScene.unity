@@ -1487,6 +1487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractArea
       objectReference: {fileID: 0}
+    - target: {fileID: 8671081168683843147, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: sortOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
 --- !u!4 &1997466331 stripped
@@ -1666,6 +1670,10 @@ PrefabInstance:
     - target: {fileID: 6381059116480314677, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671081168683843147, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: sortOrder
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4246872306598619977, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
