@@ -9,6 +9,8 @@ public class InnerGPUBox : MonoBehaviour
     [SerializeField]
     private GameObject gpuGO;
     [SerializeField]
+    private Collider2D gpuHitBox;
+    [SerializeField]
     private GPUBox gpuBox;
 
     private void OnEnable()
@@ -33,6 +35,11 @@ public class InnerGPUBox : MonoBehaviour
     {        
         if(col?.attachedRigidbody?.gameObject == gpuGO)
         {
+            //enable collision on gpu
+            gpuGO.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            gpuHitBox.isTrigger = false;
+            //detach gpu from gpu inner box
+            gpuGO.transform.parent = null;
             StartCoroutine(DestroyCoroutine());
         }
     }
