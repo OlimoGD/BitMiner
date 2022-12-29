@@ -56,7 +56,7 @@ public class InteractArea : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             InteractArea ia = hits[i].transform.gameObject.GetComponent<InteractArea>();
-            if(ia != null)
+            if(ia != null && ia.enabled == true)
             {
                 hitInteractAreas.Add(ia);
                 if(ia == this)

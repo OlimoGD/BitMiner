@@ -1489,6 +1489,10 @@ PrefabInstance:
       value: InteractArea
       objectReference: {fileID: 0}
     - target: {fileID: 8671081168683843147, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671081168683843147, guid: f705761ce9a45bb4798bbab31f003076, type: 3}
       propertyPath: sortOrder
       value: 5
       objectReference: {fileID: 0}
@@ -1505,7 +1509,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1997466330}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2cbd28ad9e97cf479c6d8fb309d2e2a, type: 3}
   m_Name: 

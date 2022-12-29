@@ -29,6 +29,7 @@ public class InnerGPUBox : MonoBehaviour
     {
         //enable dragging on gpu
         gpuGO.GetComponent<Draggable>().enabled = true;
+        gpuGO.GetComponentInChildren<InteractArea>().enabled = true;
     }
 
     private void OnColliderExitedBoxArea(Collider2D col)
