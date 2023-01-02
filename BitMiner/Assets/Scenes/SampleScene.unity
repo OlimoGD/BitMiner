@@ -1258,6 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactArea: {fileID: 1997466332}
+  health: 10
   isDestroyable: 0
 --- !u!1001 &1633948759
 PrefabInstance:
