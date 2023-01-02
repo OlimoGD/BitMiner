@@ -6,6 +6,8 @@ public class GPU : MonoBehaviour
 {
     [SerializeField]
     private InteractArea interactArea;
+    [SerializeField]
+    private GameObject coinPrefab;
 
     [SerializeField]
     private int health = 10;
@@ -39,19 +41,24 @@ public class GPU : MonoBehaviour
             health--;
             if(health <= 0)
             {
-                OnDestroyGPU();
+                DestroyGPU();
             }
         }
     }
 
-    private void OnDestroyGPU()
+    private void DestroyGPU()
     {
-        StartCoroutine(DestroyCoroutine());
+        Destroy(this.gameObject);
+        GameObject coinGO = Instantiate(coinPrefab, this.transform.position, Quaternion.identity);
+        Rigidbody2D coinRigidb = coinGO.GetComponent<Rigidbody2D>();
+        coinRigidb.velocity = GetRandomUpwardForce();
     }
 
-    IEnumerator DestroyCoroutine()
+    private Vector2 GetRandomUpwardForce()
     {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(this.gameObject);
+        float xDir = Random.Range(-1f, 1f);
+        Vector2 dir = new Vector2(xDir, 1).normalized;
+        float force = 10f;
+        return dir * force;
     }
 }
