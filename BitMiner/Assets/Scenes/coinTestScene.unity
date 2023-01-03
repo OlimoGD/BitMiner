@@ -311,6 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactArea: {fileID: 1538839019}
   coinPrefab: {fileID: 6390749502956995693, guid: 2429d8209c8ef534aac164097f98a81b, type: 3}
+  hitEffectPrefab: {fileID: 3196691093587939156, guid: 4c5348d0e9538c947839a903ff7408ee, type: 3}
   health: 1
   isDestroyable: 1
 --- !u!114 &302743041
@@ -540,7 +541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactArea: {fileID: 1800454384}
   coinPrefab: {fileID: 6390749502956995693, guid: 2429d8209c8ef534aac164097f98a81b, type: 3}
-  health: 1
+  hitEffectPrefab: {fileID: 3196691093587939156, guid: 4c5348d0e9538c947839a903ff7408ee, type: 3}
+  health: 100
   isDestroyable: 1
 --- !u!114 &423745836
 MonoBehaviour:
@@ -742,6 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactArea: {fileID: 1811573337}
   coinPrefab: {fileID: 6390749502956995693, guid: 2429d8209c8ef534aac164097f98a81b, type: 3}
+  hitEffectPrefab: {fileID: 3196691093587939156, guid: 4c5348d0e9538c947839a903ff7408ee, type: 3}
   health: 1
   isDestroyable: 1
 --- !u!114 &1101989464
@@ -1091,6 +1094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactArea: {fileID: 196897390}
   coinPrefab: {fileID: 6390749502956995693, guid: 2429d8209c8ef534aac164097f98a81b, type: 3}
+  hitEffectPrefab: {fileID: 3196691093587939156, guid: 4c5348d0e9538c947839a903ff7408ee, type: 3}
   health: 1
   isDestroyable: 1
 --- !u!114 &1597385546

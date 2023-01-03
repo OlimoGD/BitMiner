@@ -8,6 +8,8 @@ public class GPU : MonoBehaviour
     private InteractArea interactArea;
     [SerializeField]
     private GameObject coinPrefab;
+    [SerializeField]
+    private GameObject hitEffectPrefab;
 
     [SerializeField]
     private int health = 10;
@@ -38,12 +40,24 @@ public class GPU : MonoBehaviour
     {
         if(isDestroyable)
         {
+            SpawnHitEffect();
             health--;
             if(health <= 0)
             {
                 DestroyGPU();
             }
         }
+    }
+
+    private void SpawnHitEffect()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        int randNumber = Random.Range(0,4);
+        float randAngle = 90f * randNumber;
+        Quaternion rot = Quaternion.identity;
+        rot.eulerAngles = new Vector3(0,0,randAngle);
+        Instantiate(hitEffectPrefab, mousePos, rot);
+        
     }
 
     private void DestroyGPU()
