@@ -57,7 +57,6 @@ public class GPU : MonoBehaviour
         Quaternion rot = Quaternion.identity;
         rot.eulerAngles = new Vector3(0,0,randAngle);
         Instantiate(hitEffectPrefab, mousePos, rot);
-        
     }
 
     private void DestroyGPU()
