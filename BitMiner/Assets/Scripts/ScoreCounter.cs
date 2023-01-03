@@ -14,6 +14,20 @@ public class ScoreCounter : MonoBehaviour
         get { return score; } 
     }
 
+    public static ScoreCounter Instance { get; private set; }
+    
+    private void Awake() 
+    {  
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+    }
+
     public void AddScore(int value)
     {
         int oldScore = score;

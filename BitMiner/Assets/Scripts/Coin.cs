@@ -21,8 +21,7 @@ public class Coin : MonoBehaviour
 
     private void OnClick()
     {
-        ScoreCounter scoreCounter = FindObjectOfType<ScoreCounter>();
-        scoreCounter.AddScore(value);
+        ScoreCounter.Instance.AddScore(value);
         Destroy(this.gameObject);
     }
 }
