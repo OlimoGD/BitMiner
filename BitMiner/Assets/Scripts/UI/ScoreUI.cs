@@ -5,6 +5,8 @@ using TMPro;
 
 public class ScoreUI : MonoBehaviour
 {
+    [SerializeField]
+    private ScoreCounter scoreCounter;
     private TextMeshProUGUI textComponent;
 
     private void Start()
@@ -14,12 +16,14 @@ public class ScoreUI : MonoBehaviour
 
     private void OnEnable()
     {
-        ScoreCounter.Instance.OnScoreChanged += OnScoreChanged;
+        //can't use ScoreCounter.Instance here, because Awake is not garanteed to
+        //run before every object's OnEnable
+        scoreCounter.OnScoreChanged += OnScoreChanged;
     }
 
     private void OnDisable()
     {
-        ScoreCounter.Instance.OnScoreChanged -= OnScoreChanged;
+        scoreCounter.OnScoreChanged -= OnScoreChanged;
     }
 
     private void OnScoreChanged(int newScore, int oldScore)
