@@ -28,6 +28,6 @@ public class ScoreUI : MonoBehaviour
 
     private void OnScoreChanged(int newScore, int oldScore)
     {
-        textComponent.text = newScore.ToString();
+        textComponent.text = newScore.ToString().PadLeft(7, '0');
     }
 }
