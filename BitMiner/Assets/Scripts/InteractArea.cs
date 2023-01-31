@@ -52,7 +52,7 @@ public class InteractArea : MonoBehaviour
         List<InteractArea> hitInteractAreas = new List<InteractArea>();
         bool mouseIsOverThisInteractArea = false;
         int sortOrderOfThisInteractArea = 0;
-        RaycastHit2D[] hits = Physics2D.RaycastAll(MouseWorldPos(), -Vector2.up);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(MouseWorldPos(), -Vector2.up, 0.001f);
         for (int i = 0; i < hits.Length; i++)
         {
             InteractArea ia = hits[i].transform.gameObject.GetComponent<InteractArea>();
