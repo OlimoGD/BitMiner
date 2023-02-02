@@ -24,6 +24,15 @@ public class Inventory : MonoBehaviour
         return itemSlots[index];
     }
 
+    public bool Push(Item newItem)
+    {
+        int index = FirstFreeSlot();
+        if(index == -1) return false;
+
+        itemSlots[index] = newItem;
+        return true;
+    }
+
     public void Resize(int size)
     {
         Item[] newItemSlots = new Item[Size];
@@ -41,5 +50,16 @@ public class Inventory : MonoBehaviour
         {
             itemSlots[i] = null;
         }
+    }
+
+    public int FirstFreeSlot()
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if(itemSlots[i] == null)
+                return i;
+        }
+
+        return -1;
     }
 }
