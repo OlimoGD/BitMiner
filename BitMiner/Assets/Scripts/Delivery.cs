@@ -5,7 +5,7 @@ using UnityEngine;
 public class Delivery : MonoBehaviour
 {
     [SerializeField]
-    private int deliveryFrequencyInSeconds = 5;
+    private int deliveryFrequencyInSeconds = 20;
     [SerializeField]
     private ItemSO itemToDeliver;
     [SerializeField]
@@ -22,7 +22,6 @@ public class Delivery : MonoBehaviour
         {
             yield return new WaitForSeconds(deliveryFrequencyInSeconds);
             playerInventory.Push(new Item(itemToDeliver));
-            Debug.Log("delivered!");
         }
     }
 }
