@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Bolt 510
   description: It ain't much, but it gets the work done... just give it some time.
-  sprite: {fileID: 21300000, guid: f7a8091ccd3eed14d89b5b28a756414e, type: 3}
+  sprite: {fileID: 21300000, guid: 46eec36511b829d418995341c81ee6a1, type: 3}

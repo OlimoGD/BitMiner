@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public delegate void OnItemSlotChangedDelegate(int index, Item newItem);
+    public event OnItemSlotChangedDelegate OnItemSlotChanged;
+
     [SerializeField]
     private int initialSize = 1;
     private Item[] itemSlots;
@@ -17,6 +20,7 @@ public class Inventory : MonoBehaviour
     public void Set(int index, Item newItem)
     {
         itemSlots[index] = newItem;
+        OnItemSlotChanged?.Invoke(index, newItem);
     }
 
     public Item Get(int index)
@@ -30,6 +34,7 @@ public class Inventory : MonoBehaviour
         if(index == -1) return false;
 
         itemSlots[index] = newItem;
+        OnItemSlotChanged?.Invoke(index, newItem);
         return true;
     }
 
@@ -49,6 +54,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < itemSlots.Length; i++)
         {
             itemSlots[i] = null;
+            OnItemSlotChanged?.Invoke(i, null);
         }
     }
 
