@@ -11,9 +11,15 @@ public class Inventory : MonoBehaviour
     private int initialSize = 1;
     private Item[] itemSlots;
     public int Size { get { return itemSlots.Length; } }
+    [SerializeField]
+    private int maxSize = 18;
+    public int MaxSize { get { return maxSize; } }
+    
 
     private void Start()
     {
+        if(initialSize > maxSize)
+            initialSize = maxSize;
         itemSlots = new Item[initialSize];
     }
 
@@ -40,6 +46,8 @@ public class Inventory : MonoBehaviour
 
     public void Resize(int size)
     {
+        if(size > maxSize)
+            size = maxSize;
         Item[] newItemSlots = new Item[Size];
         int howLong = Mathf.Min(itemSlots.Length, newItemSlots.Length);
         for (int i = 0; i < howLong; i++)

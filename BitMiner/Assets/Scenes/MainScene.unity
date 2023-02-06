@@ -3217,7 +3217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f254ef2256b1340bc0d82c8814088a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSize: 18
+  initialSize: 6
+  maxSize: 18
 --- !u!4 &762974858
 Transform:
   m_ObjectHideFlags: 0
@@ -3247,6 +3248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 762974857}
   slotsContainerGO: {fileID: 565565307}
+  blockedSlotSprite: {fileID: 895238179, guid: 634152f2ce058624593c15ae9a16cc74, type: 3}
 --- !u!1 &771612560
 GameObject:
   m_ObjectHideFlags: 0

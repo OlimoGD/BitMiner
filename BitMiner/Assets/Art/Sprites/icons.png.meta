@@ -179,6 +179,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: wood_block_icon
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 182
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e615b289334acce488da33ea2314ccf2
+      internalID: 1076793575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metal_storage_door_icon
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 182
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d13ff30b54a8e64fbaf889c3947b8b2
+      internalID: 895238179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -193,6 +235,8 @@ TextureImporter:
       mail_icon: -941541333
       bolt_510_icon: -1920832695
       coin_icon: 738659126
+      wood_block_icon: 1076793575
+      metal_storage_door_icon: 895238179
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
