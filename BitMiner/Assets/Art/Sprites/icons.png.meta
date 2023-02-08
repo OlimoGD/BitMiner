@@ -209,7 +209,7 @@ TextureImporter:
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,6 +217,27 @@ TextureImporter:
       bones: []
       spriteID: 0d13ff30b54a8e64fbaf889c3947b8b2
       internalID: 895238179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mystery_gpu_icon
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 182
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244d02179194c144e852b72046c041b0
+      internalID: 15498673
       vertices: []
       indices: 
       edges: []
@@ -234,6 +255,7 @@ TextureImporter:
     nameFileIdTable:
       mail_icon: -941541333
       bolt_510_icon: -1920832695
+      mystery_gpu_icon: 15498673
       coin_icon: 738659126
       wood_block_icon: 1076793575
       metal_storage_door_icon: 895238179
