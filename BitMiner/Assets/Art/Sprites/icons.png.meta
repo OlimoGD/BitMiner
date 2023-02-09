@@ -121,11 +121,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 182
-        width: 14
-        height: 14
+        y: 178
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: coin_icon
       rect:
         serializedVersion: 2
-        x: 14
-        y: 182
-        width: 14
-        height: 14
+        x: 18
+        y: 178
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,10 +162,10 @@ TextureImporter:
       name: bolt_510_icon
       rect:
         serializedVersion: 2
-        x: 28
-        y: 182
-        width: 14
-        height: 14
+        x: 36
+        y: 178
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,12 +183,12 @@ TextureImporter:
       name: wood_block_icon
       rect:
         serializedVersion: 2
-        x: 42
-        y: 182
-        width: 14
-        height: 14
+        x: 54
+        y: 178
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: metal_storage_door_icon
       rect:
         serializedVersion: 2
-        x: 56
-        y: 182
-        width: 14
-        height: 14
+        x: 72
+        y: 178
+        width: 18
+        height: 18
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,10 +225,10 @@ TextureImporter:
       name: mystery_gpu_icon
       rect:
         serializedVersion: 2
-        x: 70
-        y: 182
-        width: 14
-        height: 14
+        x: 90
+        y: 178
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,6 +253,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      icons_0: -553630079
       mail_icon: -941541333
       bolt_510_icon: -1920832695
       mystery_gpu_icon: 15498673
