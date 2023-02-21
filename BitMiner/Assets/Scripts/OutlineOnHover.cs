@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class OutlineOnHover : MonoBehaviour
 {
     [SerializeField]
-    private MouseWatcher mouseWatcher;
+    private MouseArea mouseArea;
     [SerializeField]
     private Material spriteOutlineMaterial;
     [SerializeField]
     private Image imageToAlter;
 
     private Material initialMaterial;
+    private bool outlineOn = false;
 
     private void Start()
     {
@@ -21,36 +22,36 @@ public class OutlineOnHover : MonoBehaviour
     
     private void OnEnable()
     {
-        mouseWatcher.OnMouseIsOver += OnMouseIsOver;
+        mouseArea.OnMouseHoverEntered += OnMouseHoverEntered;
+        mouseArea.OnMouseHoverExited += OnMouseHoverExited;
     }
 
     private void OnDisable()
     {
-        mouseWatcher.OnMouseIsOver -= OnMouseIsOver;
+        mouseArea.OnMouseHoverEntered -= OnMouseHoverEntered;
+        mouseArea.OnMouseHoverExited -= OnMouseHoverExited;
     }
 
-    private void OnMouseIsOver(List<GameObject> gameObjects)
+    private void OnMouseHoverEntered(int zOrder)
     {
-        Debug.Log("asd");
-        if(gameObjects.Count <= 0)
-        {
-            RemoveOutline();
-            return;
-        }
+        bool isTopMostMouseArea = zOrder == 0;
+        if(isTopMostMouseArea) ApplyOutline();
+    }
 
-        if(gameObjects[0] == this.gameObject)
-            ApplyOutline();
-        else
-            RemoveOutline(); 
+    private void OnMouseHoverExited()
+    {
+        if(outlineOn) RemoveOutline();
     }
 
     private void ApplyOutline()
     {
         imageToAlter.material = spriteOutlineMaterial;
+        outlineOn = true;
     }
 
     private void RemoveOutline()
     {
         imageToAlter.material = initialMaterial;
+        outlineOn = false;
     }
 }
