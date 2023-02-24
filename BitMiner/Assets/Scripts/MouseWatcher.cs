@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class MouseWatcher : MonoBehaviour
 {
-    public delegate void OnMouseIsOverDelegate(List<GameObject> gameObjects);
-    public event OnMouseIsOverDelegate OnMouseIsOver;
-
     private List<MouseArea> areasMouseWasOverPreviously = new List<MouseArea>();
     private List<MouseArea> areasMouseIsOver = new List<MouseArea>();
     private List<MouseArea> areasMouseEntered = new List<MouseArea>();
