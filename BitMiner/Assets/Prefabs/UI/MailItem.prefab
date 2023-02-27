@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: some random subject
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f85bfc0d34ef28243860b6f072b5d019, type: 2}
   m_sharedMaterial: {fileID: 6472223581262168625, guid: f85bfc0d34ef28243860b6f072b5d019, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: David
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f85bfc0d34ef28243860b6f072b5d019, type: 2}
   m_sharedMaterial: {fileID: 6472223581262168625, guid: f85bfc0d34ef28243860b6f072b5d019, type: 2}
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2022.04.12
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f85bfc0d34ef28243860b6f072b5d019, type: 2}
   m_sharedMaterial: {fileID: 6472223581262168625, guid: f85bfc0d34ef28243860b6f072b5d019, type: 2}
@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 6418852048300182705}
   - component: {fileID: 6418852048300182706}
   - component: {fileID: 6418852048300182707}
+  - component: {fileID: 3087617688099217615}
   m_Layer: 5
   m_Name: MailItem
   m_TagString: Untagged
@@ -485,6 +486,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 16
+--- !u!114 &3087617688099217615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6418852048300182710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e668d4384a86554a9f3eb09277394cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fromText: {fileID: 6418852046779860619}
+  subjectText: {fileID: 6418852046740819295}
+  dateText: {fileID: 6418852046937640155}
+  mouseArea: {fileID: 1690205514110446009}
 --- !u!1001 &6418852047204933405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,6 +575,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec78fa6faf021a4ba9efbe91c6b62b9, type: 3}
+--- !u!114 &1690205514110446009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5647662471658731172, guid: 7ec78fa6faf021a4ba9efbe91c6b62b9, type: 3}
+  m_PrefabInstance: {fileID: 6418852047204933405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852d417a492787e4da8f1daee6c42fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1690205514110446011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5647662471658731174, guid: 7ec78fa6faf021a4ba9efbe91c6b62b9, type: 3}
