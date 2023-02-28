@@ -502,6 +502,7 @@ MonoBehaviour:
   subjectText: {fileID: 6418852046740819295}
   dateText: {fileID: 6418852046937640155}
   mouseArea: {fileID: 1690205514110446009}
+  panelImage: {fileID: 6418852048300182707}
 --- !u!1001 &6418852047204933405
 PrefabInstance:
   m_ObjectHideFlags: 0

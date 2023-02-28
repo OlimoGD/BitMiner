@@ -14,17 +14,21 @@ public class MailUI : MonoBehaviour
     [SerializeField]
     private ViewNavigationManager viewNavigationManager;
 
+    private List<MailItemUI> mailItemUis = new List<MailItemUI>();
+
     private Mail currentlyOpenMail;
     public Mail CurrentlyOpenMail { get { return currentlyOpenMail; } }
 
     private void OnEnable()
     {
         mailInbox.OnMailReceived += OnMailReceived;
+        mailInbox.OnMailRead += OnMailRead;
     }
 
     private void OnDisable()
     {
         mailInbox.OnMailReceived -= OnMailReceived;
+        mailInbox.OnMailRead -= OnMailRead;
     }
 
     private void OnMailReceived(Mail mail)
@@ -32,10 +36,22 @@ public class MailUI : MonoBehaviour
         InstantiateMailItem(mail);
     }
 
+    private void OnMailRead(Mail mail)
+    {
+        foreach (MailItemUI mailItemUi in mailItemUis)
+        {
+            if(mailItemUi.Mail == mail)
+            {
+                mailItemUi.OnMailRead();
+            }
+        }
+    }
+
     private void InstantiateMailItem(Mail mail)
     {
         GameObject go = Instantiate(mailItemPrefab, Vector3.zero, Quaternion.identity, mailItemsContainer.transform);
         MailItemUI ui = go.GetComponent<MailItemUI>();
+        mailItemUis.Add(ui);
         ui.SetMail(mail);
         ui.OnClicked += OnMailItemClicked;
     }
@@ -48,7 +64,7 @@ public class MailUI : MonoBehaviour
     private void OpenMail(Mail mail)
     {
         currentlyOpenMail = mail;
-        currentlyOpenMail.Read = true;
+        mailInbox.ReadMail(currentlyOpenMail);
         viewNavigationManager.NavigateTo(ViewNavigationManager.ViewName.MAIL_DETAILS);
     }
 }

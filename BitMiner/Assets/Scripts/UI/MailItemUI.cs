@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MailItemUI : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class MailItemUI : MonoBehaviour
     [SerializeField]
     private MouseArea mouseArea;
 
+    [SerializeField]
+    private Image panelImage;
+
     private Mail mail;
     public Mail Mail { get { return mail; } }
 
@@ -29,6 +33,16 @@ public class MailItemUI : MonoBehaviour
     private void OnDisable()
     {
         mouseArea.OnMousePrimaryButtonPressed -= OnMousePrimaryButtonPressed;
+    }
+
+    public void OnMailRead()
+    {
+        Color readColor = new Color(
+            panelImage.color.r - 0.2f, 
+            panelImage.color.g - 0.2f, 
+            panelImage.color.b - 0.2f, 
+            panelImage.color.a);
+        panelImage.color = readColor;
     }
 
     public void SetMail(Mail mail)

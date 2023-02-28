@@ -6,6 +6,8 @@ public class MailInbox : MonoBehaviour
 {
     public delegate void MailReceivedDelegate(Mail mail);
     public event MailReceivedDelegate OnMailReceived;
+    public delegate void MailReadDelegate(Mail mail);
+    public event MailReadDelegate OnMailRead;
 
     private readonly List<Mail> mails = new List<Mail>();
 
@@ -18,5 +20,11 @@ public class MailInbox : MonoBehaviour
     public List<Mail> GetMails()
     {
         return mails;
+    }
+
+    public void ReadMail(Mail mail)
+    {
+        mail.Read = true;
+        OnMailRead?.Invoke(mail);
     }
 }
