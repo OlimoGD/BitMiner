@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd927a3acd17b48469d595b82d13f583, type: 3}
-  m_Name: Bolt510
+  m_Name: Bolt510Box
   m_EditorClassIdentifier: 
-  itemName: Bolt-510
-  description: It ain't much, but it gets the work done... just give it some time.
-  sprite: {fileID: -1920832695, guid: 634152f2ce058624593c15ae9a16cc74, type: 3}
+  itemName: Bolt-510 box
+  description: Container.
+  sprite: {fileID: -1339022396, guid: 634152f2ce058624593c15ae9a16cc74, type: 3}

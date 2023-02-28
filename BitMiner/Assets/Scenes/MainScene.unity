@@ -2163,7 +2163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deliveryFrequencyInSeconds: 2
-  itemToDeliver: {fileID: 11400000, guid: 880f79178c44f624bbe05f9bc95c0875, type: 2}
+  itemToDeliver: {fileID: 11400000, guid: c96fc145de03f51489916671add4b2d9, type: 2}
   playerInventory: {fileID: 762974857}
 --- !u!4 &349094236
 Transform:
