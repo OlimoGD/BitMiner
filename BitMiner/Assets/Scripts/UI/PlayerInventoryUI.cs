@@ -8,9 +8,9 @@ public class PlayerInventoryUI : MonoBehaviour
     [SerializeField]
     private Inventory playerInventory;
     [SerializeField]
-    private GameObject slotsContainerGO;
-    [SerializeField]
     private Sprite blockedSlotSprite;
+    [SerializeField]
+    private ItemSlotUI[] itemSlots;
 
     private void Start()
     {
@@ -29,30 +29,14 @@ public class PlayerInventoryUI : MonoBehaviour
 
     private void OnItemSlotChanged(int index, Item newItem)
     {
-        GameObject ItemSlotsUIGO = slotsContainerGO.transform.Find($"ItemSlot{index}").gameObject;
-        GameObject ItemUIGO = ItemSlotsUIGO.transform.Find($"Item{index}").gameObject;
-        Image itemImage = ItemUIGO.GetComponent<Image>();
-        if(newItem == null)
-        {
-            itemImage.enabled = false;
-            itemImage.sprite = null;
-        }
-        else
-        {
-            itemImage.sprite = newItem.Sprite;
-            itemImage.enabled = true;
-        }
+        itemSlots[index].Item = newItem;
     }
 
     private void SetBlockedInventorySlotSprites()
     {
         for (int i = playerInventory.Size; i < playerInventory.MaxSize; i++)
         {
-            GameObject ItemSlotsUIGO = slotsContainerGO.transform.Find($"ItemSlot{i}").gameObject;
-            GameObject ItemUIGO = ItemSlotsUIGO.transform.Find($"Item{i}").gameObject;
-            Image itemImage = ItemUIGO.GetComponent<Image>();
-            itemImage.sprite = blockedSlotSprite;
-            itemImage.enabled = true;
+            itemSlots[i].SetSprite(blockedSlotSprite);
         }
     }
 }
