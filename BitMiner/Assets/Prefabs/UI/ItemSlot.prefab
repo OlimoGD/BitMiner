@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 2373227936648758017}
+  contextMenuPrefab: {fileID: 4045199893523907977, guid: b4a9643a6ac7de94e91172413fb0c9c2, type: 3}
   mouseArea: {fileID: 7966833812599313823}
 --- !u!1001 &2373227936834151227
 PrefabInstance:
