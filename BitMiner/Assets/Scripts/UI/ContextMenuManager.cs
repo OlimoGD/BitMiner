@@ -26,9 +26,11 @@ public class ContextMenuManager : MonoBehaviour
     {
         if(items == null)
             throw new System.ArgumentNullException("Context menu items are null!");
-
         if(currentlyActiveContextMenu != null)
             Destroy(currentlyActiveContextMenu);
+        if(items.Length == 0) 
+            return;
+
         DoSpawnContextMenu(items);
     }
 

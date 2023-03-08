@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ItemSlotUI : MonoBehaviour
 {
     [SerializeField]
+    private PlayerInventoryUI inventoryUI;
+    [SerializeField]
     private Canvas canvas;
     [SerializeField]
     private Image itemImage;
@@ -42,26 +44,7 @@ public class ItemSlotUI : MonoBehaviour
     {
         if(zOrder != 0) return;
         if(item == null) return;
-        contextMenuManager.SpawnContextMenu(new[]{
-            new ContextMenuManager.ContextMenuItem { Label = "Open", OnClickHandler = OnOpenClicked },
-            new ContextMenuManager.ContextMenuItem { Label = "Delete", OnClickHandler = OnDeleteClicked },
-            new ContextMenuManager.ContextMenuItem { Label = "Cancel", OnClickHandler = OnCancelClicked }
-        });
-    }
-
-    private void OnOpenClicked()
-    {
-        Debug.Log("Open");
-    }
-
-    private void OnDeleteClicked()
-    {
-        Debug.Log("Delete");
-    }
-
-    private void OnCancelClicked()
-    {
-        Debug.Log("Cancel");
+        contextMenuManager.SpawnContextMenu(item.GetActions());
     }
 
     private void SetItem(Item newItem)

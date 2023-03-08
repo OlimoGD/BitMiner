@@ -21,7 +21,7 @@ public class Delivery : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(deliveryFrequencyInSeconds);
-            playerInventory.Push(new Item(itemToDeliver));
+            playerInventory.Add(new ContainerItem(itemToDeliver));
         }
     }
 }

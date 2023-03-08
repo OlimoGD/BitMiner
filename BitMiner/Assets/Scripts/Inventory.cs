@@ -23,25 +23,36 @@ public class Inventory : MonoBehaviour
         itemSlots = new Item[initialSize];
     }
 
-    public void Set(int index, Item newItem)
-    {
-        itemSlots[index] = newItem;
-        OnItemSlotChanged?.Invoke(index, newItem);
-    }
-
     public Item Get(int index)
     {
         return itemSlots[index];
     }
 
-    public bool Push(Item newItem)
+    public int Add(Item newItem)
     {
         int index = FirstFreeSlot();
-        if(index == -1) return false;
+        if(index == -1) return -1;
 
         itemSlots[index] = newItem;
         OnItemSlotChanged?.Invoke(index, newItem);
-        return true;
+        return index;
+    }
+
+    ///<summary>Deletes the item from the inventory.
+    ///Returns -1 if deletion was unsuccessful.
+    ///Otherwise returns the slot index where it was deleted from.</summary>
+    public int Delete(Item item)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if(itemSlots[i] == item)
+            {
+                itemSlots[i] = null;
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public void Resize(int size)

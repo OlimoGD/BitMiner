@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item
 {
-    private ItemSO itemScriptableObject;
+    protected ItemSO itemScriptableObject;
 
     public string ItemName 
     {
@@ -24,5 +24,18 @@ public class Item
     public Item(ItemSO itemScriptableObject)
     {
         this.itemScriptableObject = itemScriptableObject;
+    }
+
+    public virtual ContextMenuManager.ContextMenuItem[] GetActions()
+    {
+        List<ContextMenuManager.ContextMenuItem> menuItems = new List<ContextMenuManager.ContextMenuItem>();
+        
+        menuItems.Add(new ContextMenuManager.ContextMenuItem 
+        { 
+            Label = "Cancel", 
+            OnClickHandler = () => {}
+        });
+
+        return menuItems.ToArray();
     }
 }
