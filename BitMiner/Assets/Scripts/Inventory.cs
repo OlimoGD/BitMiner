@@ -30,10 +30,13 @@ public class Inventory : MonoBehaviour
 
     public int Add(Item newItem)
     {
+        //items can only be in 1 inventory at a time
+        if(newItem.Inventory != null) return -1;
         int index = FirstFreeSlot();
         if(index == -1) return -1;
 
         itemSlots[index] = newItem;
+        newItem.Inventory = this;
         OnItemSlotChanged?.Invoke(index, newItem);
         return index;
     }
@@ -48,6 +51,8 @@ public class Inventory : MonoBehaviour
             if(itemSlots[i] == item)
             {
                 itemSlots[i] = null;
+                item.Inventory = null;
+                OnItemSlotChanged?.Invoke(i, null);
                 return i;
             }
         }
@@ -55,6 +60,8 @@ public class Inventory : MonoBehaviour
         return -1;
     }
 
+    //TODO: setting item.inventory
+    /*
     public void Resize(int size)
     {
         if(size > maxSize)
@@ -66,12 +73,13 @@ public class Inventory : MonoBehaviour
             newItemSlots[i] = itemSlots[i];
         }
         itemSlots = newItemSlots;
-    }
+    }*/
 
     public void Clear()
     {
         for (int i = 0; i < itemSlots.Length; i++)
         {
+            itemSlots[i].Inventory = null;
             itemSlots[i] = null;
             OnItemSlotChanged?.Invoke(i, null);
         }

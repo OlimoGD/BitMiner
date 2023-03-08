@@ -51,6 +51,6 @@ public class InnerGPUBox : MonoBehaviour
     IEnumerator DestroyCoroutine()
     {
         yield return new WaitForSeconds(0.5f);
-        Destroy(this.gameObject);
+        Destroy(this.transform.parent.gameObject);
     }
 }

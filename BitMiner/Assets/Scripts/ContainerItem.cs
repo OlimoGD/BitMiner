@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class ContainerItem : Item
 {
+    private GpuBoxSpawner gpuBoxSpawner;
+
     public ContainerItem(ItemSO itemScriptableObject) : base(itemScriptableObject)
     {
+        gpuBoxSpawner = GameObject.FindWithTag("GpuBoxSpawner").GetComponent<GpuBoxSpawner>();
+    }
+
+    public GameObject GpuBoxToSpawnPrefab
+    {
+        get 
+        {
+            return ((ContainerItemSO)this.itemScriptableObject).gpuBoxToSpawnPrefab;
+        }
     }
 
     public void Open()
     {
-        Debug.Log("Container opened!");
+        bool success = gpuBoxSpawner.SpawnGpuBox(this);
+        if(success)
+        {
+            Inventory.Delete(this);
+        }
     }
 
     public override ContextMenuManager.ContextMenuItem[] GetActions()

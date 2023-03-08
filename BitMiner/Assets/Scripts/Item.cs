@@ -21,6 +21,8 @@ public class Item
         get { return itemScriptableObject.sprite; }
     }
 
+    public Inventory Inventory { get; set; }
+
     public Item(ItemSO itemScriptableObject)
     {
         this.itemScriptableObject = itemScriptableObject;

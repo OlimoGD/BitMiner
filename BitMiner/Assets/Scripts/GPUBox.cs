@@ -19,6 +19,8 @@ public class GPUBox : MonoBehaviour
     private InteractArea boxArea;
     [SerializeField]
     private GameObject innerBoxGO;
+    [SerializeField]
+    private GameObject outerBoxGO;
 
     private void OnEnable()
     {
@@ -66,6 +68,6 @@ public class GPUBox : MonoBehaviour
     IEnumerator DestroyCoroutine()
     {
         yield return new WaitForSeconds(0.5f);
-        Destroy(this.gameObject);
+        Destroy(outerBoxGO);
     }
 }
