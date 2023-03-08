@@ -7,12 +7,8 @@ public class ScoreUI : MonoBehaviour
 {
     [SerializeField]
     private ScoreCounter scoreCounter;
-    private TextMeshPro textComponent;
-
-    private void Start()
-    {
-        textComponent = GetComponent<TextMeshPro>();
-    }
+    [SerializeField]
+    private TextMeshProUGUI textComponent;
 
     private void OnEnable()
     {
