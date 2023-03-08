@@ -59,7 +59,7 @@ public class GPUBox : MonoBehaviour
 
     private void OnColliderExitedBoxArea(Collider2D col)
     {
-        if(col.attachedRigidbody.gameObject != innerBoxGO) return;
+        if(col.attachedRigidbody?.gameObject != innerBoxGO) return;
         //inner box has been slid out
         OnInnerBoxExited?.Invoke();
         StartCoroutine(DestroyCoroutine());
