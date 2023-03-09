@@ -35,6 +35,12 @@ public class MouseArea : MonoBehaviour
     /// is released. Called even if the mouse already left the area.</summary>
     public event OnMousePrimaryButtonReleasedDelegate OnMousePrimaryButtonReleased;
 
+    public delegate void OnMousePrimaryButtonClickedDelegate();
+    ///<summary>Called the frame the primary mouse button is released in the area, if the primary mouse button 
+    ///was pressed in the area before it. Called only if the time elapsed between the press and the release is
+    ///not greater than a small treshold.</summary>
+    public event OnMousePrimaryButtonClickedDelegate OnMousePrimaryButtonClicked;
+
     public delegate void OnMouseSecondaryButtonPressedDelegate(int zOrder);
     ///<summary>The frame the secondary mouse button was pressed while in the area.</summary>
     ///<param name="zOrder">0 if this is the top-most MouseArea of the ones the mouse is over, 
@@ -50,6 +56,25 @@ public class MouseArea : MonoBehaviour
     ///<summary>Called the frame the secondary mouse button that was pressed in the area
     /// is released. Called even if the mouse already left the area.</summary>
     public event OnMouseSecondaryButtonReleasedDelegate OnMouseSecondaryButtonReleased;
+
+    public delegate void OnMouseSecondaryButtonClickedDelegate();
+    ///<summary>Called the frame the secondary mouse button is released in the area, if the secondary mouse button 
+    ///was pressed in the area before it. Called only if the time elapsed between the press and the release is
+    ///not greater than a small treshold.</summary>
+    public event OnMouseSecondaryButtonClickedDelegate OnMouseSecondaryButtonClicked;
+
+    [SerializeField]
+    ///<summary>The maximum time that can elapse between a mouse press and release in order
+    ///to still register as a click.</summary>
+    private float clickTresholdInSeconds = 0.3f;
+    private float primaryClickTimeLeft = 0f;
+    private float secondaryClickTimeLeft = 0f;
+
+    private void Update()
+    {
+        primaryClickTimeLeft -= Time.deltaTime;
+        secondaryClickTimeLeft -= Time.deltaTime;
+    }
 
     public void MouseHoverEntered(int zOrder)
     {
@@ -70,10 +95,12 @@ public class MouseArea : MonoBehaviour
     {
         if(button == 0)
         {
+            primaryClickTimeLeft = clickTresholdInSeconds;
             OnMousePrimaryButtonPressed?.Invoke(zOrder);
         }
         else if(button == 1)
         {
+            secondaryClickTimeLeft = clickTresholdInSeconds;
             OnMouseSecondaryButtonPressed?.Invoke(zOrder);
         }
     }
@@ -94,10 +121,14 @@ public class MouseArea : MonoBehaviour
     {
         if(button == 0)
         {
+            if(primaryClickTimeLeft > 0)
+                OnMousePrimaryButtonClicked?.Invoke();
             OnMousePrimaryButtonReleased?.Invoke();
         }
         else if(button == 1)
         {
+            if(secondaryClickTimeLeft > 0)
+                OnMouseSecondaryButtonClicked?.Invoke();
             OnMouseSecondaryButtonReleased?.Invoke();
         }
     }

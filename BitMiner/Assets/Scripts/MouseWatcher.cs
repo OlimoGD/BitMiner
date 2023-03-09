@@ -89,7 +89,7 @@ public class MouseWatcher : MonoBehaviour
             MouseWorldPos(), -Vector2.up, 0.001f, LayerMask.GetMask("Mouse"));
         for (int i = 0; i < hits.Length; i++)
         {
-            MouseArea ma = hits[i].transform.gameObject.GetComponent<MouseArea>();
+            MouseArea ma = hits[i].collider.transform.gameObject.GetComponent<MouseArea>();
             if(ma != null) hitMouseAreas.Add(ma);
         }
         //sort the list so that the first element is the one with the highest Z value

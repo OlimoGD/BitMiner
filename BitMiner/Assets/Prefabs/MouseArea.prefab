@@ -71,3 +71,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852d417a492787e4da8f1daee6c42fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickTresholdInSeconds: 0.2

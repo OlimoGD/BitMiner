@@ -5,7 +5,7 @@ using UnityEngine;
 public class GPU : MonoBehaviour
 {
     [SerializeField]
-    private InteractArea interactArea;
+    private MouseArea mouseArea;
     [SerializeField]
     private GameObject coinPrefab;
     [SerializeField]
@@ -28,12 +28,12 @@ public class GPU : MonoBehaviour
 
     private void OnEnable()
     {
-        interactArea.OnClick += OnClick;
+        mouseArea.OnMousePrimaryButtonClicked += OnClick;
     }
 
     private void OnDisable()
     {
-        interactArea.OnClick -= OnClick;
+        mouseArea.OnMousePrimaryButtonClicked -= OnClick;
     }
 
     private void OnClick()
