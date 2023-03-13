@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 8103230994990285350}
   - component: {fileID: 8103230994990285351}
   - component: {fileID: 8103230994990285369}
+  - component: {fileID: 836737600841139167}
   m_Layer: 0
   m_Name: GPU
   m_TagString: Untagged
@@ -208,6 +209,19 @@ MonoBehaviour:
   hitEffectPrefab: {fileID: 3196691093587939156, guid: 4c5348d0e9538c947839a903ff7408ee, type: 3}
   health: 10
   isDestroyable: 0
+--- !u!114 &836737600841139167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103230994990285346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4320bc4775622a348b64869dc5a84e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 1eb0a6b025fa9fa4ba3f7fa6baa18016, type: 2}
 --- !u!1 &8103230995044928939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1109,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5647662471658731172, guid: 7ec78fa6faf021a4ba9efbe91c6b62b9, type: 3}
       propertyPath: clickTresholdInSeconds
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5647662471658731173, guid: 7ec78fa6faf021a4ba9efbe91c6b62b9, type: 3}
       propertyPath: m_Size.x
