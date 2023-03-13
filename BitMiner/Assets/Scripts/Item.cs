@@ -40,4 +40,11 @@ public class Item
 
         return menuItems.ToArray();
     }
+
+    public bool Is(ItemSO itemSO)
+    {
+        if(itemSO == null) 
+            return false;
+        return  itemScriptableObject == itemSO;
+    }
 }
