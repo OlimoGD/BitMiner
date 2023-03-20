@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class ScoreCounter : MonoBehaviour
 {
-    public delegate void ScoreChangedDelegate(int newScore, int oldScore);
+    public delegate void ScoreChangedDelegate(ulong newScore, ulong oldScore);
     public event ScoreChangedDelegate OnScoreChanged;
 
-    private int score;
-    public int Score 
+    private ulong score;
+    public ulong Score 
     { 
         get { return score; } 
     }
@@ -28,9 +28,9 @@ public class ScoreCounter : MonoBehaviour
         } 
     }
 
-    public void AddScore(int value)
+    public void AddScore(ulong value)
     {
-        int oldScore = score;
+        ulong oldScore = score;
         score += value;
         OnScoreChanged?.Invoke(score, oldScore);
     }

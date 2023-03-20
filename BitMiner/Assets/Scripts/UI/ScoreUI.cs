@@ -22,7 +22,7 @@ public class ScoreUI : MonoBehaviour
         scoreCounter.OnScoreChanged -= OnScoreChanged;
     }
 
-    private void OnScoreChanged(int newScore, int oldScore)
+    private void OnScoreChanged(ulong newScore, ulong oldScore)
     {
         textComponent.text = newScore.ToString().PadLeft(7, '0');
     }

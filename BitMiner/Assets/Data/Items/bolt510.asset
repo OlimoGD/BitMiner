@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Bolt-510
   description: It ain't much, but it gets the work done... just give it some time.
   sprite: {fileID: -1920832695, guid: 634152f2ce058624593c15ae9a16cc74, type: 3}
+  megaHashesPerSecond: 450

@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
     [SerializeField]
     private InteractArea interactArea;
     [SerializeField]
-    private int value;
+    private ulong value;
 
     private void OnEnable()
     {
