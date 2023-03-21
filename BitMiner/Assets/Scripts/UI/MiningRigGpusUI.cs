@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class MiningRigGpusUI : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class MiningRigGpusUI : MonoBehaviour
     
     [SerializeField]
     private TextMeshProUGUI bolt510CounterText;
+    [SerializeField]
+    private TextMeshProUGUI hashRateText;
+    [SerializeField]
+    private TextMeshProUGUI earningsText;
+
+    private ulong totalHashRateInMegaHashesPerSecond;
 
     private void OnEnable()
     {
@@ -31,6 +38,13 @@ public class MiningRigGpusUI : MonoBehaviour
 
     private void UpdateDataOnUI()
     {
+        UpdateGpuCounts();
+        CalculateAndUpdateHashRate();
+        CalculateEarnings();
+    }
+
+    private void UpdateGpuCounts()
+    {
         int numberOfBolt510 = 0;
         foreach (GpuItem item in miningRig.Gpus)
         {
@@ -39,5 +53,23 @@ public class MiningRigGpusUI : MonoBehaviour
         }
         
         bolt510CounterText.text = numberOfBolt510.ToString();
+    }
+
+    private void CalculateAndUpdateHashRate()
+    {
+        ulong totalHashRate = 0;
+        foreach (var item in miningRig.Gpus)
+        {
+            totalHashRate += item.MegaHashesPerSecond;
+        }
+        totalHashRateInMegaHashesPerSecond = totalHashRate;
+
+        hashRateText.text = $"Hash rate: {totalHashRate} MH/s";
+    }
+
+    private void CalculateEarnings()
+    {
+        var coinsPerSecond = totalHashRateInMegaHashesPerSecond / (float)miningRig.CoinComputeCostInMegaHashes;
+        earningsText.text = $"Earnings: {coinsPerSecond} bit/s";
     }
 }

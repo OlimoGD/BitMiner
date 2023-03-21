@@ -11,7 +11,10 @@ public class MiningRig : MonoBehaviour
     private List<GpuItem> gpus = new List<GpuItem>();
     public List<GpuItem> Gpus { get { return gpus.ToList(); } }
 
-    private const ulong howManyMegaHashPerCoin = 5000;
+    [SerializeField]
+    private ulong coinComputeCostInMegaHashes = 10000;
+    public ulong CoinComputeCostInMegaHashes { get { return coinComputeCostInMegaHashes; } }
+
     private ulong megaHashesPerformed = 0;
 
     private void Start()
@@ -40,9 +43,9 @@ public class MiningRig : MonoBehaviour
 
     private ulong ConvertPerformedMegaHashesToCoins()
     {
-        int x = Mathf.FloorToInt(megaHashesPerformed / howManyMegaHashPerCoin);
-        ulong howManyToConvert = howManyMegaHashPerCoin * (ulong)x;
+        int x = Mathf.FloorToInt(megaHashesPerformed / coinComputeCostInMegaHashes);
+        ulong howManyToConvert = coinComputeCostInMegaHashes * (ulong)x;
         megaHashesPerformed -= howManyToConvert;
-        return howManyToConvert / howManyMegaHashPerCoin;
+        return howManyToConvert / coinComputeCostInMegaHashes;
     }
 }
