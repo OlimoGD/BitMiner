@@ -13,15 +13,11 @@ public class Delivery : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(DeliverItemPeriodically());
+        InvokeRepeating(nameof(DeliverItem), 2f, deliveryFrequencyInSeconds);
     }
 
-    private IEnumerator DeliverItemPeriodically()
+    private void DeliverItem()
     {
-        while(true)
-        {
-            yield return new WaitForSeconds(deliveryFrequencyInSeconds);
-            playerInventory.Add(new ContainerItem(itemToDeliver));
-        }
+        playerInventory.Add(new ContainerItem(itemToDeliver));
     }
 }

@@ -7,6 +7,6 @@ public class MailSO : ScriptableObject
 {
     public string from;
     public string subject;
-    [TextAreaAttribute(minLines: 5, maxLines: 5)]
+    [TextAreaAttribute(minLines: 5, maxLines: 20)]
     public string message;
 }
