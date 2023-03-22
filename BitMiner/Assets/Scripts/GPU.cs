@@ -26,6 +26,8 @@ public class GPU : MonoBehaviour
         set { isDestroyable = value; }
     }
 
+    public CameraUtils cameraUtils;
+
     private void OnEnable()
     {
         mouseArea.OnMousePrimaryButtonClicked += OnClick;
@@ -40,6 +42,7 @@ public class GPU : MonoBehaviour
     {
         if(isDestroyable)
         {
+            cameraUtils.ShakeCamera();
             SpawnHitEffect();
             health--;
             if(health <= 0)
