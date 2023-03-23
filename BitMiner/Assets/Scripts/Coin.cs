@@ -8,6 +8,9 @@ public class Coin : MonoBehaviour
     private InteractArea interactArea;
     [SerializeField]
     private ulong value;
+    [SerializeField]
+    private AudioClip coinPickupSound;
+    public AudioManager audioManager;
 
     private void OnEnable()
     {
@@ -21,6 +24,7 @@ public class Coin : MonoBehaviour
 
     private void OnClick()
     {
+        audioManager.Play(coinPickupSound, 0.4f, 1f);
         ScoreCounter.Instance.AddScore(value);
         Destroy(this.gameObject);
     }

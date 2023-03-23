@@ -27,6 +27,9 @@ public class GPU : MonoBehaviour
     }
 
     public CameraUtils cameraUtils;
+    public AudioManager audioManager;
+    [SerializeField]
+    private AudioClip hitSound;
 
     private void OnEnable()
     {
@@ -44,6 +47,7 @@ public class GPU : MonoBehaviour
         {
             cameraUtils.ShakeCamera();
             SpawnHitEffect();
+            audioManager.Play(hitSound, 0.4f, Random.Range(0.9f, 1.2f));
             health--;
             if(health <= 0)
             {
@@ -66,6 +70,7 @@ public class GPU : MonoBehaviour
     {
         Destroy(this.gameObject);
         GameObject coinGO = Instantiate(coinPrefab, this.transform.position, Quaternion.identity);
+        coinGO.GetComponent<Coin>().audioManager = audioManager;
         Rigidbody2D coinRigidb = coinGO.GetComponent<Rigidbody2D>();
         coinRigidb.velocity = GetRandomUpwardForce();
     }

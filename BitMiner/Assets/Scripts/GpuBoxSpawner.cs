@@ -6,6 +6,8 @@ public class GpuBoxSpawner : MonoBehaviour
 {
     [SerializeField]
     private CameraUtils cameraUtils;
+    [SerializeField]
+    private AudioManager audioManager;
 
     private GameObject spawnedGpuBox;
 
@@ -16,6 +18,7 @@ public class GpuBoxSpawner : MonoBehaviour
         spawnedGpuBox = Instantiate(gpuBoxItem.GpuBoxToSpawnPrefab, Vector3.zero, Quaternion.identity, null);
         GPU gpu = spawnedGpuBox.GetComponentInChildren<GPU>();
         gpu.cameraUtils = cameraUtils;
+        gpu.audioManager = audioManager;
         return true;
     }
 }
