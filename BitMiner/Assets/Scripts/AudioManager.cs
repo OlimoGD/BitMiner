@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void Play(AudioClip clip, float volume, float pitch)
+    public void Play(AudioClip clip, float volume, float pitch = 1f)
     {
         audioSource.volume = volume;
         audioSource.pitch = pitch;

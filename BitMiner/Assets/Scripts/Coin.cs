@@ -24,7 +24,7 @@ public class Coin : MonoBehaviour
 
     private void OnClick()
     {
-        audioManager.Play(coinPickupSound, 0.4f, 1f);
+        audioManager.Play(coinPickupSound, 0.4f);
         ScoreCounter.Instance.AddScore(value);
         Destroy(this.gameObject);
     }
