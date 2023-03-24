@@ -1495,9 +1495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26ecc31f67f3d340a9682cce2948b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips:
-  - {fileID: 8300000, guid: 0a8c960a565de1b4a989c748848412a1, type: 3}
-  - {fileID: 8300000, guid: 0d6d308f8c7b66a4aa40e031de8fe1b0, type: 3}
 --- !u!4 &258943879
 Transform:
   m_ObjectHideFlags: 0
@@ -8841,6 +8838,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: f24404890f728e84088366b88a4fb7d7, type: 3}
   mouseArea: {fileID: 1454606958}
+--- !u!114 &1454606960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454606957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a0146edc751fa42bf2d0ef48636914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseArea: {fileID: 1454606958}
+  audioManager: {fileID: 258943878}
+  clickSound: {fileID: 8300000, guid: bccafd5ef427c0b499343500158cc4c8, type: 3}
 --- !u!1001 &1534440086
 PrefabInstance:
   m_ObjectHideFlags: 0
