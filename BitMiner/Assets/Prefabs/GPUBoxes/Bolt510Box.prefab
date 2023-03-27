@@ -339,7 +339,7 @@ MonoBehaviour:
   health: 70
   isDestroyable: 0
   cameraUtils: {fileID: 0}
-  audioSource: {fileID: 470205206452947698}
+  audioManager: {fileID: 0}
   hitSound: {fileID: 8300000, guid: 0d6d308f8c7b66a4aa40e031de8fe1b0, type: 3}
 --- !u!114 &836737600841139167
 MonoBehaviour:
@@ -512,6 +512,8 @@ MonoBehaviour:
   boxArea: {fileID: 585938309091840853}
   innerBoxGO: {fileID: 8103230995229960993}
   outerBoxGO: {fileID: 8103230995204160188}
+  audioManager: {fileID: 0}
+  boxOpenSound: {fileID: 8300000, guid: 7ad7213e964fdd844a4397bd0f6a9e71, type: 3}
 --- !u!1 &8103230995116228625
 GameObject:
   m_ObjectHideFlags: 0

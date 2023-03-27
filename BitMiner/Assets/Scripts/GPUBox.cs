@@ -21,6 +21,9 @@ public class GPUBox : MonoBehaviour
     private GameObject innerBoxGO;
     [SerializeField]
     private GameObject outerBoxGO;
+    public AudioManager audioManager;
+    [SerializeField]
+    private AudioClip boxOpenSound;
 
     private void OnEnable()
     {
@@ -41,6 +44,7 @@ public class GPUBox : MonoBehaviour
         openingMainAnimator.SetTrigger("Open");
         openingSideAnimator.SetTrigger("Open");
         openingArea.gameObject.SetActive(false);
+        audioManager.Play(boxOpenSound, 0.7f, Random.Range(0.95f, 1.05f));
     }
 
     private void OnOpeningMainAnimationFinished(string animationName)
