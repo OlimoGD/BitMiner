@@ -8,6 +8,8 @@ public class GpuBoxSpawner : MonoBehaviour
     private CameraUtils cameraUtils;
     [SerializeField]
     private AudioManager audioManager;
+    [SerializeField]
+    private AudioClip boxSpawnSound;
 
     private GameObject spawnedGpuBox;
 
@@ -21,6 +23,8 @@ public class GpuBoxSpawner : MonoBehaviour
         GPU gpu = spawnedGpuBox.GetComponentInChildren<GPU>();
         gpu.cameraUtils = cameraUtils;
         gpu.audioManager = audioManager;
+
+        audioManager.Play(boxSpawnSound, 1f);
         return true;
     }
 }

@@ -10353,6 +10353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraUtils: {fileID: 519420034}
   audioManager: {fileID: 258943878}
+  boxSpawnSound: {fileID: 8300000, guid: 3042e869ae8d3364abf888db8ed1cc31, type: 3}
 --- !u!4 &1855598045
 Transform:
   m_ObjectHideFlags: 0
