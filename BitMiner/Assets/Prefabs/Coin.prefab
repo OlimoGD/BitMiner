@@ -156,6 +156,7 @@ MonoBehaviour:
   interactArea: {fileID: 7636942075592916133}
   value: 1
   coinPickupSound: {fileID: 8300000, guid: 0a8c960a565de1b4a989c748848412a1, type: 3}
+  coinHitSound: {fileID: 8300000, guid: 7845b0ea8d1e167478f08dcf82aed76a, type: 3}
   audioManager: {fileID: 0}
 --- !u!1 &9152622041629756629
 GameObject:

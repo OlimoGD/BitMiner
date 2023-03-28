@@ -10,6 +10,8 @@ public class Coin : MonoBehaviour
     private ulong value;
     [SerializeField]
     private AudioClip coinPickupSound;
+    [SerializeField]
+    private AudioClip coinHitSound;
     public AudioManager audioManager;
 
     private void OnEnable()
@@ -27,5 +29,10 @@ public class Coin : MonoBehaviour
         audioManager.Play(coinPickupSound, 0.4f);
         ScoreCounter.Instance.AddScore(value);
         Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        audioManager.Play(coinHitSound, 0.4f, Random.Range(0.95f, 1.05f));
     }
 }
