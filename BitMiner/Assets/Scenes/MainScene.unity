@@ -884,6 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0261f7a67b31294184f5506be68fb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 258943878}
+  gpuInsertSound: {fileID: 8300000, guid: 55eeba50c785af742bf43e28aabbfed3, type: 3}
   coinComputeCostInMegaHashes: 10000
 --- !u!4 &224418320
 Transform:
