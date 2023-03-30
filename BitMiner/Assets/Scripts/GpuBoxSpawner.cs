@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GpuBoxSpawner : MonoBehaviour
 {
+    public delegate void OnGpuSpawnedDelegate(GPU gpu);
+    public event OnGpuSpawnedDelegate OnGpuSpawned;
+
     [SerializeField]
     private CameraUtils cameraUtils;
     [SerializeField]
@@ -25,6 +28,8 @@ public class GpuBoxSpawner : MonoBehaviour
         gpu.audioManager = audioManager;
 
         audioManager.Play(boxSpawnSound, 1f);
+
+        OnGpuSpawned?.Invoke(gpu);
         return true;
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GPU : MonoBehaviour
 {
+    public delegate void OnDestroyedDelegate();
+    public event OnDestroyedDelegate OnDestroyed;
+
     [SerializeField]
     private MouseArea mouseArea;
     [SerializeField]
@@ -69,6 +72,7 @@ public class GPU : MonoBehaviour
     private void DestroyGPU()
     {
         Destroy(this.gameObject);
+        OnDestroyed?.Invoke();
         GameObject coinGO = Instantiate(coinPrefab, this.transform.position, Quaternion.identity);
         coinGO.GetComponent<Coin>().audioManager = audioManager;
         Rigidbody2D coinRigidb = coinGO.GetComponent<Rigidbody2D>();
