@@ -8,6 +8,10 @@ public class MiningRig : MonoBehaviour
     public delegate void GpuAddedDelegate(GpuItem gpuItem);
     public event GpuAddedDelegate OnGpuAdded;
 
+    [SerializeField]
+    private AudioManager audioManager;
+    [SerializeField]
+    private AudioClip gpuInsertSound;
     private List<GpuItem> gpus = new List<GpuItem>();
     public List<GpuItem> Gpus { get { return gpus.ToList(); } }
 
@@ -27,6 +31,7 @@ public class MiningRig : MonoBehaviour
         if(component is GpuItem)
         {
             gpus.Add((GpuItem)component);
+            audioManager.Play(gpuInsertSound, 0.6f, Random.Range(0.95f, 1.1f));
             OnGpuAdded?.Invoke((GpuItem)component);
         }
     }

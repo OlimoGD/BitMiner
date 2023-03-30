@@ -47,7 +47,7 @@ public class GPU : MonoBehaviour
         {
             cameraUtils.ShakeCamera();
             SpawnHitEffect();
-            audioManager.Play(hitSound, 0.25f, Random.Range(0.9f, 1.2f));
+            audioManager.Play(hitSound, 0.15f, Random.Range(0.9f, 1.2f));
             health--;
             if(health <= 0)
             {
