@@ -1877,7 +1877,6 @@ MonoBehaviour:
   inbox: {fileID: 631391755}
   introductionMail: {fileID: 11400000, guid: e0577c12e9f6a6e4b8a926536892218a, type: 2}
   howToInsertGpuMail: {fileID: 11400000, guid: 2417724b884563c4bb6d1962cec453a1, type: 2}
-  howToBreakGpuMail: {fileID: 11400000, guid: 587c93a557fe1e74999e04492be89f04, type: 2}
   gpuBoxSpawner: {fileID: 1855598044}
   miningRig: {fileID: 224418319}
 --- !u!1 &349094234
@@ -1909,7 +1908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1262b9148e3b4d84a8dfafa802d1117e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deliveryFrequencyInSeconds: 1
+  deliveryFrequencyInSeconds: 10
   itemToDeliver: {fileID: 11400000, guid: 4ec49c23cf30cb34eaf880c224354e7e, type: 2}
   playerInventory: {fileID: 762974857}
 --- !u!4 &349094236
