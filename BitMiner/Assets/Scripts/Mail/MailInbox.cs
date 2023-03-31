@@ -24,6 +24,7 @@ public class MailInbox : MonoBehaviour
 
     public void ReadMail(Mail mail)
     {
+        if(mail.Read) return;
         mail.Read = true;
         OnMailRead?.Invoke(mail);
     }
