@@ -66,7 +66,8 @@ public class GPU : MonoBehaviour
         float randAngle = 90f * randNumber;
         Quaternion rot = Quaternion.identity;
         rot.eulerAngles = new Vector3(0,0,randAngle);
-        Instantiate(hitEffectPrefab, mousePos, rot);
+        GameObject go = Instantiate(hitEffectPrefab, mousePos, rot);
+        go.GetComponent<SpriteRenderer>().color = Color.green;
     }
 
     private void DestroyGPU()
